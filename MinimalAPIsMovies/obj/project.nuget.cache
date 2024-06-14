@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WqznL02QVpo9ru5/q03AsiMQVA+Yj1WsmpUsRIkiLWtzPb3tRtUbgaQksb+QNk0XFVjTb1F23rHtJef6QFtzGA==",
+  "dgSpecHash": "Z3mXRAToy/S2xwmnRCTqKnHwNrFRIMGFdmLW8cpXgMm9orNzTpcETS5nmLkH1fohP3kiRTl4dwdVcXm+G6NGhQ==",
   "success": true,
-  "projectFilePath": "D:\\TTTT\\net\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
+  "projectFilePath": "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

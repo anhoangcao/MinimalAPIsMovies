@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TTTT\\net\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj": {}
+    "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj": {}
   },
   "projects": {
-    "D:\\TTTT\\net\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj": {
+    "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TTTT\\net\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
+        "projectUniqueName": "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
         "projectName": "MinimalAPIsMovies",
-        "projectPath": "D:\\TTTT\\net\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
+        "projectPath": "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\TTTT\\net\\MinimalAPIsMovies\\MinimalAPIsMovies\\obj\\",
+        "outputPath": "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
