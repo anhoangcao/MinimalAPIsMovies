@@ -6,5 +6,6 @@
         public string Name { get; set; } = null!;
         public DateTime DateOfBirth { get; set; }
         public string? Picture { get; set; }
+        public List<ActorMovie> ActorsMovies { get; set; } = new List<ActorMovie>();
     }
 }

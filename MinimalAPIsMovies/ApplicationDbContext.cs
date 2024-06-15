@@ -5,7 +5,7 @@ namespace MinimalAPIsMovies
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
 
@@ -14,17 +14,23 @@ namespace MinimalAPIsMovies
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Genre>().ToTable("Genre").Property(p => p.Name).HasMaxLength(150);
+
             modelBuilder.Entity<Actor>().ToTable("Actor").Property(p => p.Name).HasMaxLength(150);
             modelBuilder.Entity<Actor>().Property(p => p.Picture).IsUnicode();
 
-            modelBuilder.Entity<Movie>().Property(p => p.Title).HasMaxLength(250);
+            modelBuilder.Entity<Movie>().ToTable("Movies").Property(p => p.Title).HasMaxLength(250);
             modelBuilder.Entity<Movie>().Property(p => p.Poster).IsUnicode();
+
+            modelBuilder.Entity<GenreMovie>().ToTable("GenresMovies").HasKey(gm => new { gm.MovieId, gm.GenreId });
+
+            modelBuilder.Entity<ActorMovie>().ToTable("ActorsMovies").HasKey(am => new { am.MovieId, am.ActorId });
         }
 
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Comment> Comments { get; set; }
-
+        public DbSet<GenreMovie> GenresMovies { get; set; }
+        public DbSet<ActorMovie> ActorsMovies { get; set; }
     }
 }

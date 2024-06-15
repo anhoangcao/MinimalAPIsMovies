@@ -47,6 +47,12 @@ public class ActorsRepository : IActorsRepository
         return await context.Actors.AnyAsync(a => a.Id == id);
     }
 
+    public async Task<List<int>> Exists(List<int> ids)
+    {
+        return await context.Actors.Where(a => ids.Contains(a.Id)).Select(a => a.Id)
+            .ToListAsync();
+    }
+
     public async Task Update(Actor actor)
     {
         context.Update(actor);

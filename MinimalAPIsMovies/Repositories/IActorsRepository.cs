@@ -14,5 +14,6 @@ namespace MinimalAPIsMovies.Repositories
         Task Update(Actor actor);
 
         void Detach(Actor actor);
+        Task<List<int>> Exists(List<int> ids);
     }
 }
