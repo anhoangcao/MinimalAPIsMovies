@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj": {}
+    "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj": {}
   },
   "projects": {
-    "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj": {
+    "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
+        "projectUniqueName": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
         "projectName": "MinimalAPIsMovies",
-        "projectPath": "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
+        "projectPath": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\MinimalAPIsMovies.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\TTTT\\MinimalAPIsMovies\\MinimalAPIsMovies\\obj\\",
+        "outputPath": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -57,6 +57,10 @@
             "Azure.Identity": {
               "target": "Package",
               "version": "[1.11.4, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.2, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

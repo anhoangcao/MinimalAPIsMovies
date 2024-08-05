@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OutputCaching;
 using MinimalAPIsMovies.DTOs;
@@ -49,10 +50,21 @@ namespace MinimalAPIsMovies.Endpoints
             return TypedResults.Ok(genreDTO);
         }
 
-        static async Task<Created<GenreDTO>> Create(CreateGenreDTO createGenreDTO, 
+        static async Task<Results<Created<GenreDTO>, ValidationProblem>> 
+            Create(CreateGenreDTO createGenreDTO, 
             IGenresRepository repository,
-            IOutputCacheStore ouputCacheStore, IMapper mapper)
+            IOutputCacheStore ouputCacheStore, 
+            IMapper mapper, 
+            IValidator<CreateGenreDTO> validator)
         {
+
+            var validationResult = await validator.ValidateAsync(createGenreDTO);
+
+            if (!validationResult.IsValid)
+            {
+                return TypedResults.ValidationProblem(validationResult.ToDictionary());
+            }
+
             var genre = mapper.Map<Genre>(createGenreDTO);
 
             var id = await repository.Create(genre);
@@ -63,10 +75,19 @@ namespace MinimalAPIsMovies.Endpoints
             return TypedResults.Created($"/genres/{id}", genreDTO);
         }
 
-        static async Task<Results<NotFound, NoContent>> Update(int id, CreateGenreDTO createGenreDTO, 
+        static async Task<Results<NotFound, NoContent, ValidationProblem>> Update(int id, CreateGenreDTO createGenreDTO, 
             IGenresRepository repository,
-            IOutputCacheStore outputCacheStore, IMapper mapper)
+            IOutputCacheStore outputCacheStore, IMapper mapper,
+            IValidator<CreateGenreDTO> validator)
         {
+
+            var validationResult = await validator.ValidateAsync(createGenreDTO);
+
+            if (!validationResult.IsValid)
+            {
+                return TypedResults.ValidationProblem(validationResult.ToDictionary());
+            }
+
             var exists = await repository.Exists(id);
 
             if (!exists)
