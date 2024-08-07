@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
 using MinimalAPIsMovies.DTOs;
 using MinimalAPIsMovies.Entities;
+using MinimalAPIsMovies.Filters;
 using MinimalAPIsMovies.Repositories;
 using MinimalAPIsMovies.Services;
 using System.Collections.Generic;
@@ -20,8 +22,8 @@ namespace MinimalAPIsMovies.Endpoints
                 CacheOutput(c => c.Expire(TimeSpan.FromMinutes(1)).Tag("actors-get"));
             group.MapGet("getByName/{name}", GetByName);
             group.MapGet("/{id:int}", GetById);
-            group.MapPost("/", Create).DisableAntiforgery();
-            group.MapPut("/{id:int}", Update).DisableAntiforgery();
+            group.MapPost("/", Create).DisableAntiforgery().AddEndpointFilter<ValidationFilter<CreateActorDTO>>();
+            group.MapPut("/{id:int}", Update).DisableAntiforgery().AddEndpointFilter<ValidationFilter<CreateActorDTO>>();
             group.MapDelete("/{id:int}", Delete);
             return group;
         }
@@ -60,6 +62,7 @@ namespace MinimalAPIsMovies.Endpoints
             IActorsRepository repository, IOutputCacheStore outputCacheStore,
             IMapper mapper, IFileStorage fileStorage)
         {
+
             var actor = mapper.Map<Actor>(createActorDTO);
 
             if (createActorDTO.Picture is not null)

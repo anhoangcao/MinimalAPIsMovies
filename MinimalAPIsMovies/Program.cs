@@ -49,12 +49,26 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
+builder.Services.AddProblemDetails();
+
 // Services zone - END
 
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.UseExceptionHandler(exceptionHandlerApp => exceptionHandlerApp.Run(async context =>
+{
+    await Results
+    .BadRequest(new 
+    { 
+        type = "error", 
+        message = "an unexpected exception has occurred", 
+        status = 500 
+    }).ExecuteAsync(context);
+}));
+app.UseStatusCodePages();
 
 app.UseStaticFiles();
 
@@ -63,6 +77,10 @@ app.UseCors();
 app.UseOutputCache();
 
 app.MapGet("/", () => "Hello");
+app.MapGet("/error", () =>
+{
+    throw new InvalidOperationException("example error");
+});
 
 app.MapGroup("/genres").MapGenres();
 app.MapGroup("/actors").MapActors();
