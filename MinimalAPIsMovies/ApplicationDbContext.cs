@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MinimalAPIsMovies.Entities;
 
 namespace MinimalAPIsMovies
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -24,6 +26,15 @@ namespace MinimalAPIsMovies
             modelBuilder.Entity<GenreMovie>().ToTable("GenresMovies").HasKey(gm => new { gm.MovieId, gm.GenreId });
 
             modelBuilder.Entity<ActorMovie>().ToTable("ActorsMovies").HasKey(am => new { am.MovieId, am.ActorId });
+
+            modelBuilder.Entity<IdentityUser>().ToTable("Users");
+            modelBuilder.Entity<IdentityRole>().ToTable("Roles");
+            modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("RolesClaims");
+            modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UsersClaims");
+            modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("UsersLogins");
+            modelBuilder.Entity<IdentityUserRole<string>>().ToTable("UsersRoles");
+            modelBuilder.Entity<IdentityUserToken<string>>().ToTable("UsersTokens");
+        
         }
 
         public DbSet<Genre> Genres { get; set; }
@@ -32,5 +43,6 @@ namespace MinimalAPIsMovies
         public DbSet<Comment> Comments { get; set; }
         public DbSet<GenreMovie> GenresMovies { get; set; }
         public DbSet<ActorMovie> ActorsMovies { get; set; }
+        public DbSet<Error> Errors { get; set; }
     }
 }

@@ -1,6 +1,8 @@
 using FluentValidation;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer("name=DefaultConnection"));
+
+builder.Services.AddIdentityCore<IdentityUser>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<UserManager<IdentityUser>>();
+builder.Services.AddScoped<SignInManager<IdentityUser>>();
 
 builder.Services.AddCors(options =>
 {
@@ -41,6 +50,7 @@ builder.Services.AddScoped<IGenresRepository, GenresRepository>();
 builder.Services.AddScoped<IActorsRepository, ActorsRepository>();
 builder.Services.AddScoped<IMoviesRepository, MoviesRepository>();
 builder.Services.AddScoped<ICommentsRepository, CommentsRepository>();
+builder.Services.AddScoped<IErrorRepository, ErrorRepository>();
 
 builder.Services.AddTransient<IFileStorage, LocalFileStorage>();
 builder.Services.AddHttpContextAccessor();
@@ -51,6 +61,9 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.Services.AddProblemDetails();
 
+builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddAuthorization();
+
 // Services zone - END
 
 var app = builder.Build();
@@ -60,12 +73,23 @@ app.UseSwaggerUI();
 
 app.UseExceptionHandler(exceptionHandlerApp => exceptionHandlerApp.Run(async context =>
 {
+    var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerFeature>();
+    var exception = exceptionHandlerFeature?.Error!;
+
+    var error = new Error();
+    error.Date = DateTime.UtcNow;
+    error.ErrorMessage = exception.Message;
+    error.StackTrace = exception.StackTrace;
+
+    var repository = context.RequestServices.GetRequiredService<IErrorRepository>();
+    await repository.Create(error);
+
     await Results
-    .BadRequest(new 
-    { 
-        type = "error", 
-        message = "an unexpected exception has occurred", 
-        status = 500 
+    .BadRequest(new
+    {
+        type = "error",
+        message = "an unexpected exception has occurred",
+        status = 500
     }).ExecuteAsync(context);
 }));
 app.UseStatusCodePages();
@@ -76,7 +100,9 @@ app.UseCors();
 
 app.UseOutputCache();
 
-app.MapGet("/", () => "Hello");
+app.UseAuthorization();
+
+app.MapGet("/", () => "Hello, world");
 app.MapGet("/error", () =>
 {
     throw new InvalidOperationException("example error");
