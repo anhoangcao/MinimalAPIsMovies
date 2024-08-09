@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using MinimalAPIsMovies;
 using MinimalAPIsMovies.Endpoints;
 using MinimalAPIsMovies.Entities;
 using MinimalAPIsMovies.Migrations;
 using MinimalAPIsMovies.Repositories;
 using MinimalAPIsMovies.Services;
+using MinimalAPIsMovies.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,12 +63,24 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.Services.AddProblemDetails();
 
-builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddAuthentication().AddJwtBearer(options => 
+options.TokenValidationParameters = new TokenValidationParameters
+{
+    ValidateIssuer = false,
+    ValidateAudience = false,
+    ValidateLifetime = true,
+    ValidateIssuerSigningKey = true,
+    ClockSkew = TimeSpan.Zero,
+    IssuerSigningKeys = KeysHandler.GetAllKeys(builder.Configuration)
+    // IssuerSigningKey = KeysHandler.GetKey(builder.Configuration).First()
+});
 builder.Services.AddAuthorization();
 
 // Services zone - END
 
 var app = builder.Build();
+
+// Middlewares zonr - BEGIN
 
 app.UseSwagger();
 app.UseSwaggerUI();
@@ -111,7 +125,8 @@ app.MapGet("/error", () =>
 app.MapGroup("/genres").MapGenres();
 app.MapGroup("/actors").MapActors();
 app.MapGroup("/movies").MapMovies();
-app.MapGroup("movie/{movieId:int}/comments").MapComments();
+app.MapGroup("/movie/{movieId:int}/comments").MapComments();
+app.MapGroup("/users").MapUsers();
 
 // Middlewares zone - END
 
