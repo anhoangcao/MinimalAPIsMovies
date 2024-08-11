@@ -18,13 +18,20 @@ namespace MinimalAPIsMovies.Endpoints
         private readonly static string container = "actors";
         public static RouteGroupBuilder MapActors(this RouteGroupBuilder group)
         {
-            group.MapGet("/", GetAll).
-                CacheOutput(c => c.Expire(TimeSpan.FromMinutes(1)).Tag("actors-get"));
+            group.MapGet("/", GetAll)
+               .CacheOutput(c => c.Expire(TimeSpan.FromMinutes(1)).Tag("actors-get"));
             group.MapGet("getByName/{name}", GetByName);
             group.MapGet("/{id:int}", GetById);
-            group.MapPost("/", Create).DisableAntiforgery().AddEndpointFilter<ValidationFilter<CreateActorDTO>>();
-            group.MapPut("/{id:int}", Update).DisableAntiforgery().AddEndpointFilter<ValidationFilter<CreateActorDTO>>();
-            group.MapDelete("/{id:int}", Delete);
+
+            group.MapPost("/", Create)
+                .DisableAntiforgery()
+                .AddEndpointFilter<ValidationFilter<CreateActorDTO>>()
+                .RequireAuthorization("isadmin");
+            group.MapPut("/{id:int}", Update)
+                .DisableAntiforgery()
+                .AddEndpointFilter<ValidationFilter<CreateActorDTO>>()
+                .RequireAuthorization("isadmin");
+            group.MapDelete("/{id:int}", Delete).RequireAuthorization("isadmin");
             return group;
         }
 

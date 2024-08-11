@@ -20,11 +20,15 @@ namespace MinimalAPIsMovies.Endpoints
             // GET
             group.MapGet("/{id:int}", GetById);
             // Create
-            group.MapPost("/", Create).AddEndpointFilter<ValidationFilter<CreateGenreDTO>>();
+            group.MapPost("/", Create)
+                .AddEndpointFilter<ValidationFilter<CreateGenreDTO>>()
+                .RequireAuthorization("isadmin");
             // Update
-            group.MapPut("/{id:int}", Update).AddEndpointFilter<ValidationFilter<CreateGenreDTO>>();
+            group.MapPut("/{id:int}", Update)
+                .AddEndpointFilter<ValidationFilter<CreateGenreDTO>>()
+                .RequireAuthorization("isadmin");
             // Delete
-            group.MapDelete("/{id:int}", Delete);
+            group.MapDelete("/{id:int}", Delete).RequireAuthorization("isadmin");
 
             return group;
         }

@@ -56,6 +56,7 @@ builder.Services.AddScoped<IErrorRepository, ErrorRepository>();
 
 builder.Services.AddTransient<IFileStorage, LocalFileStorage>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<IUsersService, UsersService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -63,18 +64,25 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.Services.AddProblemDetails();
 
-builder.Services.AddAuthentication().AddJwtBearer(options => 
-options.TokenValidationParameters = new TokenValidationParameters
+builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
-    ValidateIssuer = false,
-    ValidateAudience = false,
-    ValidateLifetime = true,
-    ValidateIssuerSigningKey = true,
-    ClockSkew = TimeSpan.Zero,
-    IssuerSigningKeys = KeysHandler.GetAllKeys(builder.Configuration)
-    // IssuerSigningKey = KeysHandler.GetKey(builder.Configuration).First()
+    options.MapInboundClaims = false;
+
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ClockSkew = TimeSpan.Zero,
+        IssuerSigningKeys = KeysHandler.GetAllKeys(builder.Configuration)
+        // IssuerSigningKey = KeysHandler.GetKey(builder.Configuration).First()
+    };
 });
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("isadmin", policy => policy.RequireClaim("isadmin"));
+});
 
 // Services zone - END
 

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MinimalAPIsMovies.DTOs;
 using MinimalAPIsMovies.Filters;
+using MinimalAPIsMovies.Services;
 using MinimalAPIsMovies.Utilities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -14,8 +15,20 @@ namespace MinimalAPIsMovies.Endpoints
     {
         public static RouteGroupBuilder MapUsers(this RouteGroupBuilder group)
         {
-            group.MapPost("/", Register)
+            group.MapPost("/register", Register)
                 .AddEndpointFilter<ValidationFilter<UserCredentialsDTO>>();
+            group.MapPost("/login", Login)
+                .AddEndpointFilter<ValidationFilter<UserCredentialsDTO>>();
+
+            group.MapPost("/makeadmin", MakeAdmin)
+                .AddEndpointFilter<ValidationFilter<EditClaimDTO>>()
+                .RequireAuthorization("isadmin");
+
+            group.MapPost("/removeadmin", RemoveAdmin)
+                .AddEndpointFilter<ValidationFilter<EditClaimDTO>>()
+                .RequireAuthorization("isadmin");
+
+            group.MapGet("/renewtoken", Renew).RequireAuthorization();
             return group;
         }
 
@@ -41,6 +54,79 @@ namespace MinimalAPIsMovies.Endpoints
             {
                 return TypedResults.BadRequest(result.Errors);
             }
+        }
+
+        static async Task<Results<Ok<AuthenticationResponseDTO>, BadRequest<string>>> Login(
+            UserCredentialsDTO userCredentialsDTO,
+            [FromServices] SignInManager<IdentityUser> signInManager,
+            [FromServices] UserManager<IdentityUser> userManager,
+            IConfiguration configuration
+            )
+        {
+            var user = await userManager.FindByEmailAsync(userCredentialsDTO.Email);
+
+            if (user is null)
+            {
+                return TypedResults.BadRequest("There was a problem with the email or the password");
+            }
+
+            var results = await signInManager.CheckPasswordSignInAsync(user,
+                userCredentialsDTO.Password, lockoutOnFailure: false);
+
+            if (results.Succeeded)
+            {
+                var authenticationResponse =
+                    await BuildToken(userCredentialsDTO, configuration, userManager);
+                return TypedResults.Ok(authenticationResponse);
+            }
+            else
+            {
+                return TypedResults.BadRequest("There was a problem with the email or the password");
+            }
+        }
+
+        static async Task<Results<NoContent, NotFound>> MakeAdmin(EditClaimDTO editClaimDTO,
+            [FromServices] UserManager<IdentityUser> userManager)
+        {
+            var user = await userManager.FindByEmailAsync(editClaimDTO.Email);
+
+            if (user is null)
+            {
+                return TypedResults.NotFound();
+            }
+
+            await userManager.AddClaimAsync(user, new Claim("isadmin", "true"));
+            return TypedResults.NoContent();
+        }
+
+        static async Task<Results<NoContent, NotFound>> RemoveAdmin(EditClaimDTO editClaimDTO,
+            [FromServices] UserManager<IdentityUser> userManager)
+        {
+            var user = await userManager.FindByEmailAsync(editClaimDTO.Email);
+
+            if (user is null)
+            {
+                return TypedResults.NotFound();
+            }
+
+            await userManager.RemoveClaimAsync(user, new Claim("isadmin", "true"));
+            return TypedResults.NoContent();
+        }
+
+        private static async Task<Results<NotFound, Ok<AuthenticationResponseDTO>>> Renew(
+            IUsersService usersService, IConfiguration configuration,
+            [FromServices] UserManager<IdentityUser> userManager)
+        {
+            var user = await usersService.GetUser();
+
+            if (user is null)
+            {
+                return TypedResults.NotFound();
+            }
+
+            var usersCredential = new UserCredentialsDTO { Email = user.Email! };
+            var response = await BuildToken(usersCredential, configuration, userManager);
+            return TypedResults.Ok(response);
         }
 
         private async static Task<AuthenticationResponseDTO>

@@ -11,27 +11,12 @@
       "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\dtos\\authenticationresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\dtos\\authenticationresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\validations\\editclaimdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\validations\\editclaimdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\validations\\usercredentialsdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\validations\\usercredentialsdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\validations\\validationutilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\validations\\validationutilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\dtos\\usercredentialsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\dtos\\usercredentialsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\utilities\\keyshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\utilities\\keyshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\AppData\\Roaming\\Microsoft\\UserSecrets\\ce1cd0b7-4b3e-4f8a-94f2-86f8189aa13b\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\dtos\\editclaimdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\dtos\\editclaimdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,34 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsersEndpoints.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T04:44:21.272Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthenticationResponseDTO.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\AuthenticationResponseDTO.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\DTOs\\AuthenticationResponseDTO.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\AuthenticationResponseDTO.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\DTOs\\AuthenticationResponseDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T04:39:50.386Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -77,72 +36,48 @@
               "RelativeDocumentMoniker": "MinimalAPIsMovies\\Program.cs",
               "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Program.cs",
               "RelativeToolTip": "MinimalAPIsMovies\\Program.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAAIEAAAAAAAAA",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAC4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T04:03:28.872Z",
+              "WhenOpened": "2024-08-11T03:42:55.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ValidationUtilities.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Validations\\ValidationUtilities.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Validations\\ValidationUtilities.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Validations\\ValidationUtilities.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\Validations\\ValidationUtilities.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "EditClaimDTOValidator.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Validations\\EditClaimDTOValidator.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Validations\\EditClaimDTOValidator.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Validations\\EditClaimDTOValidator.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\Validations\\EditClaimDTOValidator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T04:35:31.701Z",
+              "WhenOpened": "2024-08-11T03:30:23.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersEndpoints.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAgwBQAAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T03:26:56.132Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UserCredentialsDTOValidator.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Validations\\UserCredentialsDTOValidator.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Validations\\UserCredentialsDTOValidator.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Validations\\UserCredentialsDTOValidator.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\Validations\\UserCredentialsDTOValidator.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAABMAAAA",
+              "Title": "EditClaimDTO.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\EditClaimDTO.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\DTOs\\EditClaimDTO.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\EditClaimDTO.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\DTOs\\EditClaimDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T04:26:28.784Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserCredentialsDTO.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\UserCredentialsDTO.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\DTOs\\UserCredentialsDTO.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\UserCredentialsDTO.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\DTOs\\UserCredentialsDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T04:22:32.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "KeysHandler.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Utilities\\KeysHandler.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Utilities\\KeysHandler.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Utilities\\KeysHandler.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\Utilities\\KeysHandler.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAwwB4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T03:14:52.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "secrets.json",
-              "DocumentMoniker": "C:\\Users\\Admin\\AppData\\Roaming\\Microsoft\\UserSecrets\\ce1cd0b7-4b3e-4f8a-94f2-86f8189aa13b\\secrets.json",
-              "ToolTip": "C:\\Users\\Admin\\AppData\\Roaming\\Microsoft\\UserSecrets\\ce1cd0b7-4b3e-4f8a-94f2-86f8189aa13b\\secrets.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-09T02:59:43.447Z",
+              "WhenOpened": "2024-08-11T03:27:39.429Z",
               "EditorCaption": ""
             }
           ]
