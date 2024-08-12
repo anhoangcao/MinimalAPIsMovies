@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "F:\\WORK\\MinimalAPIsMovies\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\endpoints\\usersendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\endpoints\\usersendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\endpoints\\moviesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\endpoints\\moviesendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\endpoints\\actorsendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\endpoints\\actorsendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\utilities\\swaggerextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\utilities\\swaggerextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\dtos\\paginationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\dtos\\paginationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\validations\\editclaimdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\validations\\editclaimdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\utilities\\httpcontextextensionsutilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\utilities\\httpcontextextensionsutilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\dtos\\editclaimdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\dtos\\editclaimdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\dtos\\creategenrerequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\dtos\\creategenrerequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|f:\\work\\minimalapismovies\\minimalapismovies\\endpoints\\genresendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{841529DE-E354-4347-A1B5-E406CC23862B}|MinimalAPIsMovies\\MinimalAPIsMovies.csproj|solutionrelative:minimalapismovies\\endpoints\\genresendpoints.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +42,110 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Program.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Program.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Program.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\Program.cs",
-              "ViewState": "AQIAADwAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "MoviesEndpoints.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\MoviesEndpoints.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Endpoints\\MoviesEndpoints.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\MoviesEndpoints.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\Endpoints\\MoviesEndpoints.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:42:55.168Z",
+              "WhenOpened": "2024-08-12T14:29:46.703Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "EditClaimDTOValidator.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Validations\\EditClaimDTOValidator.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Validations\\EditClaimDTOValidator.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Validations\\EditClaimDTOValidator.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\Validations\\EditClaimDTOValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
+              "Title": "SwaggerExtensions.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Utilities\\SwaggerExtensions.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Utilities\\SwaggerExtensions.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Utilities\\SwaggerExtensions.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\Utilities\\SwaggerExtensions.cs",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAgwAYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:30:23.26Z",
+              "WhenOpened": "2024-08-12T14:21:44.912Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsersEndpoints.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\Endpoints\\UsersEndpoints.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwBQAAABLAAAA",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Program.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Program.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Program.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\Program.cs",
+              "ViewState": "AQIAAI4AAAAAAAAAAAAAwJMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:26:56.132Z",
+              "WhenOpened": "2024-08-12T11:56:46.558Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "EditClaimDTO.cs",
-              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\EditClaimDTO.cs",
-              "RelativeDocumentMoniker": "MinimalAPIsMovies\\DTOs\\EditClaimDTO.cs",
-              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\EditClaimDTO.cs",
-              "RelativeToolTip": "MinimalAPIsMovies\\DTOs\\EditClaimDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
+              "Title": "PaginationDTO.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\PaginationDTO.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\DTOs\\PaginationDTO.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\PaginationDTO.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\DTOs\\PaginationDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T03:27:39.429Z",
+              "WhenOpened": "2024-08-12T11:41:20.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ActorsEndpoints.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\ActorsEndpoints.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Endpoints\\ActorsEndpoints.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\ActorsEndpoints.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\Endpoints\\ActorsEndpoints.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABcAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T11:04:59.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HttpContextExtensionsUtilities.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Utilities\\HttpContextExtensionsUtilities.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Utilities\\HttpContextExtensionsUtilities.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Utilities\\HttpContextExtensionsUtilities.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\Utilities\\HttpContextExtensionsUtilities.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBAAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T13:19:35.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GenresEndpoints.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\GenresEndpoints.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\Endpoints\\GenresEndpoints.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\Endpoints\\GenresEndpoints.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\Endpoints\\GenresEndpoints.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T04:08:38.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateGenreRequestDTO.cs",
+              "DocumentMoniker": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\CreateGenreRequestDTO.cs",
+              "RelativeDocumentMoniker": "MinimalAPIsMovies\\DTOs\\CreateGenreRequestDTO.cs",
+              "ToolTip": "F:\\WORK\\MinimalAPIsMovies\\MinimalAPIsMovies\\DTOs\\CreateGenreRequestDTO.cs",
+              "RelativeToolTip": "MinimalAPIsMovies\\DTOs\\CreateGenreRequestDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T12:05:41.323Z",
               "EditorCaption": ""
             }
           ]

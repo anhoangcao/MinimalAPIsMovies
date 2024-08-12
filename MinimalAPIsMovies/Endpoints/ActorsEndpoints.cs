@@ -3,23 +3,26 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Any;
 using MinimalAPIsMovies.DTOs;
 using MinimalAPIsMovies.Entities;
 using MinimalAPIsMovies.Filters;
 using MinimalAPIsMovies.Repositories;
 using MinimalAPIsMovies.Services;
-using System.Collections.Generic;
+using MinimalAPIsMovies.Utilities;
 
 namespace MinimalAPIsMovies.Endpoints
 {
     public static class ActorsEndpoints
     {
         private readonly static string container = "actors";
+
         public static RouteGroupBuilder MapActors(this RouteGroupBuilder group)
         {
             group.MapGet("/", GetAll)
-               .CacheOutput(c => c.Expire(TimeSpan.FromMinutes(1)).Tag("actors-get"));
+               .CacheOutput(c => c.Expire(TimeSpan.FromMinutes(1)).Tag("actors-get"))
+               .AddPaginationParameters();
+
             group.MapGet("getByName/{name}", GetByName);
             group.MapGet("/{id:int}", GetById);
 
@@ -27,32 +30,36 @@ namespace MinimalAPIsMovies.Endpoints
                 .DisableAntiforgery()
                 .AddEndpointFilter<ValidationFilter<CreateActorDTO>>()
                 .RequireAuthorization("isadmin");
+                // .WithOpenApi();
             group.MapPut("/{id:int}", Update)
                 .DisableAntiforgery()
                 .AddEndpointFilter<ValidationFilter<CreateActorDTO>>()
                 .RequireAuthorization("isadmin");
+                 // .WithOpenApi();
             group.MapDelete("/{id:int}", Delete).RequireAuthorization("isadmin");
             return group;
         }
 
-        static async Task<Ok<List<ActorDTO>>> GetAll(IActorsRepository repository, 
-            IMapper mapper, int page = 1, int recordsPerPage = 10)
+        static async Task<Ok<List<ActorDTO>>> GetAll(IActorsRepository repository,
+            IMapper mapper, PaginationDTO pagination)
         {
-            var pagination = new PaginationDTO { Page = page, RecordsPerPage = recordsPerPage };
             var actors = await repository.GetAll(pagination);
-            var actorDTOs = mapper.Map<List<ActorDTO>>(actors);
-            return TypedResults.Ok(actorDTOs);
+            var actorsDTO = mapper.Map<List<ActorDTO>>(actors);
+            return TypedResults.Ok(actorsDTO);
         }
 
-        static async Task<Ok<List<ActorDTO>>> GetByName(string name, IActorsRepository repository, IMapper mapper)
+        static async Task<Ok<List<ActorDTO>>> GetByName(string name,
+            IActorsRepository repository,
+           IMapper mapper)
         {
             var actors = await repository.GetByName(name);
-            var actorDTOs = mapper.Map<List<ActorDTO>>(actors);
-            return TypedResults.Ok(actorDTOs);
+            var actorsDTO = mapper.Map<List<ActorDTO>>(actors);
+            return TypedResults.Ok(actorsDTO);
         }
 
         static async Task<Results<Ok<ActorDTO>, NotFound>> GetById(int id,
-            IActorsRepository repository, IMapper mapper)
+            IActorsRepository repository,
+            IMapper mapper)
         {
             var actor = await repository.GetById(id);
 
@@ -65,11 +72,11 @@ namespace MinimalAPIsMovies.Endpoints
             return TypedResults.Ok(actorDTO);
         }
 
-        static async Task<Created<ActorDTO>> Create([FromForm] CreateActorDTO createActorDTO,
+        static async Task<Created<ActorDTO>>
+            Create([FromForm] CreateActorDTO createActorDTO,
             IActorsRepository repository, IOutputCacheStore outputCacheStore,
             IMapper mapper, IFileStorage fileStorage)
         {
-
             var actor = mapper.Map<Actor>(createActorDTO);
 
             if (createActorDTO.Picture is not null)
@@ -96,7 +103,6 @@ namespace MinimalAPIsMovies.Endpoints
                 return TypedResults.NotFound();
             }
 
-            // Map the DTO to a new instance of the entity
             var actorForUpdate = mapper.Map<Actor>(createActorDTO);
             actorForUpdate.Id = id;
             actorForUpdate.Picture = actorDB.Picture;
@@ -108,16 +114,13 @@ namespace MinimalAPIsMovies.Endpoints
                 actorForUpdate.Picture = url;
             }
 
-            // Detach the existing tracked entity instance
-            repository.Detach(actorDB);
-
             await repository.Update(actorForUpdate);
             await outputCacheStore.EvictByTagAsync("actors-get", default);
             return TypedResults.NoContent();
         }
 
-        public static async Task<Results<NoContent, NotFound>> Delete(int id, 
-            IActorsRepository repository, IOutputCacheStore outputCacheStore, 
+        static async Task<Results<NoContent, NotFound>> Delete(int id,
+            IActorsRepository repository, IOutputCacheStore outputCacheStore,
             IFileStorage fileStorage)
         {
             var actorDB = await repository.GetById(id);
@@ -127,20 +130,10 @@ namespace MinimalAPIsMovies.Endpoints
                 return TypedResults.NotFound();
             }
 
-            // Delete the actor from the database
             await repository.Delete(id);
-
-            // Delete the associated picture if it exists
-            if (!string.IsNullOrEmpty(actorDB.Picture))
-            {
-                Console.WriteLine($"Attempting to delete file: {actorDB.Picture}");
-                await fileStorage.Delete(actorDB.Picture, container);
-            }
-
-            // Evict the cache
+            await fileStorage.Delete(actorDB.Picture, container);
             await outputCacheStore.EvictByTagAsync("actors-get", default);
             return TypedResults.NoContent();
         }
-
     }
 }

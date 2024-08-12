@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -128,6 +129,12 @@ app.MapGet("/", () => "Hello, world");
 app.MapGet("/error", () =>
 {
     throw new InvalidOperationException("example error");
+});
+
+app.MapPost("/modelbinding/{name}", ([FromRoute] string? name) =>
+{
+    if (name is null) name = "Empty";
+    return TypedResults.Ok(name);
 });
 
 app.MapGroup("/genres").MapGenres();
