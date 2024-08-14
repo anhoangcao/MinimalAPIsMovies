@@ -29,13 +29,13 @@ namespace MinimalAPIsMovies.Endpoints
             group.MapPost("/", Create)
                 .DisableAntiforgery()
                 .AddEndpointFilter<ValidationFilter<CreateActorDTO>>()
-                .RequireAuthorization("isadmin");
-                // .WithOpenApi();
+                .RequireAuthorization("isadmin")
+                .WithOpenApi();
             group.MapPut("/{id:int}", Update)
                 .DisableAntiforgery()
                 .AddEndpointFilter<ValidationFilter<CreateActorDTO>>()
-                .RequireAuthorization("isadmin");
-                 // .WithOpenApi();
+                .RequireAuthorization("isadmin")
+                .WithOpenApi();
             group.MapDelete("/{id:int}", Delete).RequireAuthorization("isadmin");
             return group;
         }

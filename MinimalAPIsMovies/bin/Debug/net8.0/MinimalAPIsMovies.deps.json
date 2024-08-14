@@ -13,11 +13,13 @@
           "FluentValidation.DependencyInjectionExtensions": "11.9.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.7",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.7",
+          "Microsoft.AspNetCore.OpenApi": "8.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.6",
           "Microsoft.IdentityModel.JsonWebTokens": "7.6.0",
           "Swashbuckle.AspNetCore": "6.6.2",
-          "System.IdentityModel.Tokens.Jwt": "7.6.0"
+          "System.IdentityModel.Tokens.Jwt": "7.6.0",
+          "System.Linq.Dynamic.Core": "1.4.4"
         },
         "runtime": {
           "MinimalAPIsMovies.dll": {}
@@ -134,6 +136,17 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "assemblyVersion": "8.0.7.0",
+            "fileVersion": "8.0.724.31402"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.OpenApi/8.0.7": {
+        "dependencies": {
+          "Microsoft.OpenApi": "1.6.14"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.OpenApi.dll": {
             "assemblyVersion": "8.0.7.0",
             "fileVersion": "8.0.724.31402"
           }
@@ -896,6 +909,14 @@
         }
       },
       "System.IO.Pipelines/6.0.3": {},
+      "System.Linq.Dynamic.Core/1.4.4": {
+        "runtime": {
+          "lib/net8.0/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.4.4.0",
+            "fileVersion": "1.4.4.0"
+          }
+        }
+      },
       "System.Memory/4.5.4": {},
       "System.Memory.Data/1.0.2": {
         "dependencies": {
@@ -1079,6 +1100,13 @@
       "sha512": "sha512-JBEWyKDEW5ABBZEkO7DKY91COXjt+XCY+kTCMdrhu8JrdNg7c9u1JphV/xruvQMzktO6o7uTOOXp6N0AQyZk7A==",
       "path": "microsoft.aspnetcore.identity.entityframeworkcore/8.0.7",
       "hashPath": "microsoft.aspnetcore.identity.entityframeworkcore.8.0.7.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.OpenApi/8.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9SBDNvlwA88r5oD7yUbTmwr9ylkmZWdPQgohBWCdz6cESDAo6JgCD5vEOZS/nq2WIL5SCn3/RamAStcdiRzd4g==",
+      "path": "microsoft.aspnetcore.openapi/8.0.7",
+      "hashPath": "microsoft.aspnetcore.openapi.8.0.7.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
       "type": "package",
@@ -1492,6 +1520,13 @@
       "sha512": "sha512-ryTgF+iFkpGZY1vRQhfCzX0xTdlV3pyaTTqRu2ETbEv+HlV7O6y7hyQURnghNIXvctl5DuZ//Dpks6HdL/Txgw==",
       "path": "system.io.pipelines/6.0.3",
       "hashPath": "system.io.pipelines.6.0.3.nupkg.sha512"
+    },
+    "System.Linq.Dynamic.Core/1.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H7WMBX/WNdG38QLwvuD26EcsIjiP6YO4jy6BMjG47fjkjG9mMXfVZIgPxtBRGi5cBDB17AoEY8F05serSsam9Q==",
+      "path": "system.linq.dynamic.core/1.4.4",
+      "hashPath": "system.linq.dynamic.core.1.4.4.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",

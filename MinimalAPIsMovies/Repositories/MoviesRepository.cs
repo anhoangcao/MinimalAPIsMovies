@@ -2,19 +2,19 @@
 using Microsoft.EntityFrameworkCore;
 using MinimalAPIsMovies.DTOs;
 using MinimalAPIsMovies.Entities;
+using System.Linq.Dynamic.Core;
 
 namespace MinimalAPIsMovies.Repositories
 {
     public class MoviesRepository(IHttpContextAccessor httpContextAccessor,
-        ApplicationDbContext context, IMapper mapper) : IMoviesRepository
+        ApplicationDbContext context, IMapper mapper, ILogger<MoviesRepository> logger) : IMoviesRepository
     {
         public async Task<List<Movie>> GetAll(PaginationDTO pagination)
         {
             var queryable = context.Movies.AsQueryable();
             await httpContextAccessor.HttpContext!
                 .InsertPaginationParameterInResponseHeader(queryable);
-            return await queryable.OrderBy(m => m.Title)
-                .Paginate(pagination)
+            return await queryable.OrderBy(m => m.Title).Paginate(pagination)
                 .ToListAsync();
         }
 
@@ -24,14 +24,9 @@ namespace MinimalAPIsMovies.Repositories
                 .Include(m => m.Comments)
                 .Include(m => m.GenresMovies)
                     .ThenInclude(gm => gm.Genre)
-                .Include(m => m.ActorsMovies)
+                .Include(m => m.ActorsMovies.OrderBy(am => am.Order))
                     .ThenInclude(am => am.Actor)
                 .AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
-        }
-
-        public async Task<bool> Exists(int id)
-        {
-            return await context.Movies.AnyAsync(m => m.Id == id);
         }
 
         public async Task<int> Create(Movie movie)
@@ -52,6 +47,11 @@ namespace MinimalAPIsMovies.Repositories
             await context.Movies.Where(m => m.Id == id).ExecuteDeleteAsync();
         }
 
+        public async Task<bool> Exists(int id)
+        {
+            return await context.Movies.AnyAsync(m => m.Id == id);
+        }
+
         public async Task Assign(int id, List<int> genresIds)
         {
             var movie = await context.Movies.Include(m => m.GenresMovies)
@@ -65,7 +65,7 @@ namespace MinimalAPIsMovies.Repositories
             var genresMovies = genresIds.Select(genreId => new GenreMovie { GenreId = genreId });
 
             movie.GenresMovies = mapper.Map(genresMovies, movie.GenresMovies);
-        
+
             await context.SaveChangesAsync();
         }
 
@@ -87,6 +87,61 @@ namespace MinimalAPIsMovies.Repositories
             movie.ActorsMovies = mapper.Map(actors, movie.ActorsMovies);
 
             await context.SaveChangesAsync();
+        }
+
+        public async Task<List<Movie>> Filter(MoviesFilterDTO moviesFilterDTO)
+        {
+            var moviesQueryable = context.Movies.AsQueryable();
+
+            if (!string.IsNullOrEmpty(moviesFilterDTO.Title))
+            {
+                moviesQueryable = moviesQueryable
+                    .Where(x => x.Title.Contains(moviesFilterDTO.Title));
+            }
+
+            if (moviesFilterDTO.InTheaters)
+            {
+                moviesQueryable = moviesQueryable.Where(x => x.InTheaters);
+            }
+
+            if (moviesFilterDTO.FutureReleases)
+            {
+                var today = DateTime.Today;
+                moviesQueryable = moviesQueryable.Where(x => x.ReleaseDate > today);
+            }
+
+            if (moviesFilterDTO.GenreId != 0)
+            {
+                moviesQueryable = moviesQueryable
+                    .Where(x => x.GenresMovies
+                        .Select(y => y.GenreId)
+                        .Contains(moviesFilterDTO.GenreId));
+            }
+
+            if (!string.IsNullOrEmpty(moviesFilterDTO.OrderByField))
+            {
+                var orderKind = moviesFilterDTO.OrderByAscending ? "ascending" : "descending";
+
+                try
+                {
+                    // title ascending, title descending, releaseDate ascending
+                    moviesQueryable = moviesQueryable
+                        .OrderBy($"{moviesFilterDTO.OrderByField} {orderKind}");
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex.Message, ex);
+                }
+            }
+
+
+            await httpContextAccessor.HttpContext!
+                .InsertPaginationParameterInResponseHeader(moviesQueryable);
+
+            var movies = await moviesQueryable.Paginate(moviesFilterDTO.PaginationDTO)
+                .ToListAsync();
+
+            return movies;
         }
     }
 }

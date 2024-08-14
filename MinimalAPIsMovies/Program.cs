@@ -8,12 +8,14 @@ using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using MinimalAPIsMovies;
 using MinimalAPIsMovies.Endpoints;
 using MinimalAPIsMovies.Entities;
 using MinimalAPIsMovies.Migrations;
 using MinimalAPIsMovies.Repositories;
 using MinimalAPIsMovies.Services;
+using MinimalAPIsMovies.Swagger;
 using MinimalAPIsMovies.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -47,7 +49,37 @@ builder.Services.AddCors(options =>
 builder.Services.AddOutputCache();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "Movies API",
+        Description = "This is a web api for working with movie data",
+        Contact = new Microsoft.OpenApi.Models.OpenApiContact
+        {
+            Email = "anhoangcao02@gmail.com",
+            Name = "An Hoang",
+            Url = new Uri("https://anhoang-portfolio.netlify.app/")
+        },
+        License = new Microsoft.OpenApi.Models.OpenApiLicense
+        {
+            Name = "MIT",
+            Url = new Uri("https://opensource.org/license/mit/")
+        }
+    });
+
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header
+    });
+
+    options.OperationFilter<AuthorizationFilter>();
+});
+
 
 builder.Services.AddScoped<IGenresRepository, GenresRepository>();
 builder.Services.AddScoped<IActorsRepository, ActorsRepository>();

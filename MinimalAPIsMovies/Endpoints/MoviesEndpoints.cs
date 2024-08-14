@@ -20,13 +20,21 @@ namespace MinimalAPIsMovies.Endpoints
             group.MapGet("/", GetAll)
                 .CacheOutput(c => c.Expire(TimeSpan.FromSeconds(60)).Tag("movies-get"))
                 .AddPaginationParameters();
+            
             group.MapGet("/{id:int}", GetById);
+
+            group.MapGet("/filter", FilterMovies).AddMoviesFilterParameters();
+
             group.MapPost("/", Create).DisableAntiforgery()
                 .AddEndpointFilter<ValidationFilter<CreateMovieDTO>>()
-                .RequireAuthorization("isadmin");
+                .RequireAuthorization("isadmin")
+                .WithOpenApi();
+
             group.MapPut("/{id:int}", Update).DisableAntiforgery()
                 .AddEndpointFilter<ValidationFilter<CreateMovieDTO>>()
-                .RequireAuthorization("isadmin");
+                .RequireAuthorization("isadmin")
+                .WithOpenApi();
+
             group.MapDelete("/{id:int}", Delete).RequireAuthorization("isadmin");
             group.MapPost("/{id:int}/assignGenres", AssignGenres).RequireAuthorization("isadmin");
             group.MapPost("/{id:int}/assignActors", AssignActors).RequireAuthorization("isadmin");
@@ -174,6 +182,14 @@ namespace MinimalAPIsMovies.Endpoints
             var actors = mapper.Map<List<ActorMovie>>(actorsDTO);
             await moviesRepository.Assign(id, actors);
             return TypedResults.NoContent();
+        }
+
+        static async Task<Ok<List<MovieDTO>>> FilterMovies(MoviesFilterDTO moviesFilterDTO,
+            IMoviesRepository moviesRepository, IMapper mapper)
+        {
+            var movies = await moviesRepository.Filter(moviesFilterDTO);
+            var moviesDTO = mapper.Map<List<MovieDTO>>(movies);
+            return TypedResults.Ok(moviesDTO);
         }
     }
 }

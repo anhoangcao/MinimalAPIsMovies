@@ -429,3 +429,5 @@ F:\WORK\MinimalAPIsMovies\MinimalAPIsMovies\bin\Debug\net8.0\Microsoft.AspNetCor
 F:\WORK\MinimalAPIsMovies\MinimalAPIsMovies\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 F:\WORK\MinimalAPIsMovies\MinimalAPIsMovies\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 F:\WORK\MinimalAPIsMovies\MinimalAPIsMovies\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+F:\WORK\MinimalAPIsMovies\MinimalAPIsMovies\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+F:\WORK\MinimalAPIsMovies\MinimalAPIsMovies\bin\Debug\net8.0\System.Linq.Dynamic.Core.dll
